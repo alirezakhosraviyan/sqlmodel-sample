@@ -17,7 +17,7 @@ from app.products.models import Product
 
 @pytest.fixture(autouse=True)
 async def setup_test_env() -> AsyncGenerator[None, None]:
-    engine = get_db_engine(os.environ.get("DATABASE_URI", ""))
+    engine = get_db_engine(os.environ.get("DATABASE_URI", "sqlite+aiosqlite:///testdb.db"))
     async with engine.begin() as conn:
         await conn.run_sync(SQLModel.metadata.create_all)
         yield
