@@ -3,6 +3,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URI: sqlite+aiosqlite:///testdb.db
     steps:
       - uses: actions/checkout@v2
 
@@ -35,4 +37,4 @@ jobs:
       - run: poetry install --no-interaction
       - run: poetry run ruff check .
       - run: poetry run mypy .
-      - run: poetry run pytest -v -s --asyncio-mode=auto
+      - run: poetry run pytest
