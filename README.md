@@ -131,7 +131,7 @@
 Clone the project
 
 ```bash
-  git clone 
+  git clone git@github.com:alirezakhosraviyan/sqlmodel-sample.git
 ```
 
 Go to the project directory
@@ -152,7 +152,7 @@ Start all servers
 
 Tear down the containers (Optional)
 ```bash
-  docker-compose down
+  docker-compose down -v
 ```
 
 Access Servers:
